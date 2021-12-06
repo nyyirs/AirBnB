@@ -81,7 +81,7 @@ function Header() {
               className="w-12 pl-2 text-lg outline-none text-red-400"
               type="number"
               min={1}
-            ></input>
+            />
           </div>
         </div>
       )}
