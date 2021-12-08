@@ -4,7 +4,7 @@ import { useRouter } from "next/dist/client/router";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
 
-function Search({searchResult }) {
+function Search({ searchResult }) {
   const router = useRouter();
   const { location, noOfGuest, startDate, endDate } = router.query;
   const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
@@ -31,19 +31,23 @@ function Search({searchResult }) {
             <p className="button">More Filters</p>
           </div>
           <div className="flex flex-col ">
-          {searchResult.map(( {img, location, title, description, star, price, total} ) => (
-            <InfoCard 
-              key={img}
-              img={img}
-              location={location}
-              title={title}
-              star={star}
-              price={price}
-              total={total}/>
-          ))}
+            {searchResult.map(
+              ({ img, location, title, description, star, price, total }) => (
+                <InfoCard
+                  key={img}
+                  img={img}
+                  description={description}
+                  location={location}
+                  title={title}
+                  star={star}
+                  price={price}
+                  total={total}
+                />
+              )
+            )}
           </div>
-        </section> 
-      </main> 
+        </section>
+      </main>
 
       <Footer />
     </div>
@@ -52,12 +56,14 @@ function Search({searchResult }) {
 
 export default Search;
 
-export async function getServerSideProps (){
-  const searchResult = await fetch("https://links.papareact.com/isz").then (res => res.json());
+export async function getServerSideProps() {
+  const searchResult = await fetch("https://links.papareact.com/isz").then(
+    (res) => res.json()
+  );
 
   return {
     props: {
-      searchResult
-    }
-  }
+      searchResult,
+    },
+  };
 }
