@@ -4,7 +4,7 @@ This clone is using Tailwind CSS and Next.js framework
 
 ## Preview
 
-Preview the example live on [airBnB](https://airbnb-pxfv447g1-nyyirs.vercel.app/):
+Preview the example live [here](https://airbnb-pxfv447g1-nyyirs.vercel.app/):
 
 ## How to use
 
